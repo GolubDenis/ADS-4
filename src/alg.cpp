@@ -34,10 +34,15 @@ int countPairs2(int *arr, int len, int value) {
     int count = 0;
     int halfval = value / 2;
     for (int i = 0; arr[i] <= halfval && i < len; i++) {
+        bool found = false;
         for (int j = i + 1; j < len; j++) {
             if (arr[i] + arr[j] == value) {
+                found = true;
                 count++;
+                continue;
             }
+            if (found) {
+                break;
         }
     }
     return count;
