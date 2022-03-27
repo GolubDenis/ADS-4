@@ -57,5 +57,5 @@ int countPairs3(int *arr, int len, int value) {
     for (int i = 1; i <= halfAmount; i++) {
         count -= i;
     }
-    return count
+    return count;
 }
