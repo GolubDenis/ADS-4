@@ -7,16 +7,14 @@ int cbinsearch(int* arr, int size, int value) {
         step = step >> 1;
         if (value > arr[i]) {
             i += step;
-        }        
-        else if (value < arr[i]) {
+        } else if (value < arr[i]) {
             i -= step;
-        }
-        else if (value == arr[i]) {
+        } else if (value == arr[i]) {
             for (; value == arr[i]; i++) {
             }
             i--;
             for (; value == arr[i] && i >= 0; i--) {
-                result++;
+                count++;
             }
             break;
         }
