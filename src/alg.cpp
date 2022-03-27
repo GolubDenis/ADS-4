@@ -31,6 +31,18 @@ int countPairs1(int *arr, int len, int value) {
     return count;
 }
 int countPairs2(int *arr, int len, int value) {
+    int halfval = value / 2;
+    int count = 0;
+    int halfAmount = cbinsearch(arr, len, halfval);
+    for (int i = 0; arr[i] <= halfval && i < len; i++) {
+        count += cbinsearch(arr, len, value - arr[i]);
+    }
+    for (int i = 1; i <= halfAmount; i++) {
+        count -= i;
+    }
+    return count;
+}
+int countPairs3(int *arr, int len, int value) {
     int count = 0;
     int halfval = value / 2;
     for (int i = 0; arr[i] <= halfval && i < len; i++) {
@@ -45,18 +57,6 @@ int countPairs2(int *arr, int len, int value) {
                 break;
             }
         }
-    }
-    return count;
-}
-int countPairs3(int *arr, int len, int value) {
-    int halfval = value / 2;
-    int count = 0;
-    int halfAmount = cbinsearch(arr, len, halfval);
-    for (int i = 0; arr[i] <= halfval && i < len; i++) {
-        count += cbinsearch(arr, len, value - arr[i]);
-    }
-    for (int i = 1; i <= halfAmount; i++) {
-        count -= i;
     }
     return count;
 }
